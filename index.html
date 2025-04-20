@@ -1,15 +1,71 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Offcial GClient Website</title>
-  </head>
-  <style>
-    * {
-      justify-content: center;
-      font-family: "Comic Sans MS", "Comic Sans";
-    }
-  </style>
-  <body>
-    <h1>Welcome to Official GClient Website XD</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled HTML Page</title>
+  <link rel="stylesheet" href="styles.css"> <!-- assuming styles.css contains the provided CSS -->
+</head>
+<style>
+
+</style>
+<body>
+
+  <header>
+    <h1>Welcome to the Styled HTML Page</h1>
+    <nav>
+      <a href="#article-section">Articles</a> | 
+      <a href="#code-section">Code Block</a> | 
+      <a href="#task-status">Task Status</a>
+    </nav>
+  </header>
+
+  <section id="article-section">
+    <h2>Article and Figure Example</h2>
+    <article>
+      <header>
+        <h3>Understanding CSS Styling</h3>
+      </header>
+      <p>Every music production program that I'm aware of uses a Piano Roll Editor. This is the name of the system we use to lay out MIDI (Musical Instrument Digital Interface) notes on a grid. When we play a sequence, a playhead will read the Piano Roll Editor from left to right, playing notes near the bottom as low notes, and notes near the top as high notes. Before we get too far along, we need to learn a few more things about how this is working..</p>
+      <figure>
+        <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+        <figcaption>Figure 1: A simple placeholder image.</figcaption>
+      </figure>
+      <footer>
+        <p>Written by <strong>John Doe</strong></p>
+      </footer>
+    </article>
+  </section>
+
+  <section id="code-section">
+    <h2>Code Block Example</h2>
+    <pre>
+<code>
+/* This is a code block styled with custom CSS */
+body {
+  background-color: #002b36;
+  color: #839496;
+  padding: 1em;
+}
+</code>
+    </pre>
+  </section>
+
+  <section id="task-status">
+    <h2>Task Status Examples</h2>
+    <p>Here are different task statuses using custom CSS classes:</p>
+    <ul>
+      <li><span class="TODO">TODO</span> - Finish writing the article</li>
+      <li><span class="NEXT">NEXT</span> - Proofread the content</li>
+      <li><span class="ACTIVE">ACTIVE</span> - Currently editing</li>
+      <li><span class="DONE">DONE</span> - Publish the article</li>
+      <li><span class="CANCELLED">CANCELLED</span> - Cancel the old draft</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Example Styled Page</p>
+  </footer>
+
+</body>
 </html>
