@@ -317,12 +317,45 @@ h6 {
   -moz-border-radius: 0.2em;
   border-radius: 0.2em;
   background-color: #859900;
+}
+#shadowBox {
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.2);
+  /* Black w/opacity/see-through */
+  border: 3px solid;
+}
+
+.rainbow {
+  text-align: center;
+  text-decoration: underline;
+  font-family: monospace;
+  letter-spacing: 5px;
+  animation: colorRotate 6s linear 0s infinite;
+}
+
+@keyframes colorRotate {
+  from {
+    color: #6666ff;
   }
+  10% {
+    color: #0099ff;
+  }
+  50% {
+    color: #00ff00;
+  }
+  75% {
+    color: #ff3399;
+  }
+  100% {
+    color: #6666ff;
+  }
+}
 </style>
 <body>
 
   <header>
-    <h1>Welcome to the Styled HTML Page</h1>
+    <h1 class="rainbow">Welcome to the Styled HTML Page</h1>
     <nav>
       <a href="#article-section">Articles</a> | 
       <a href="#code-section">Code Block</a> | 
@@ -374,7 +407,7 @@ body {
   </section>
 
   <footer>
-    <p>&copy; 2024 Example Styled Page</p>
+    <p>&copy; 2025 Pmg Team (with Gawr Gura). All Right Reserved</p>
   </footer>
 
 </body>
