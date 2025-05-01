@@ -178,6 +178,7 @@ html {
 pre,
 code {
   font-family: 'Inconsolata', sans-serif;
+  color:
 }
 h1,
 h2,
@@ -234,6 +235,8 @@ pre {
 }
 pre code {
   background-color: #002b36;
+  font-family: "Comic Sans MS", "Comic Sans";
+  animation: colorRotate 6s linear 0s infinite;
 }
 h1 {
   font-size: 2.8em;
@@ -329,8 +332,7 @@ h6 {
 .rainbow {
   text-align: center;
   text-decoration: underline;
-  font-family: monospace;
-  letter-spacing: 5px;
+  font-family: "Comic Sans MS", "Comic Sans";
   animation: colorRotate 6s linear 0s infinite;
 }
 
@@ -357,14 +359,14 @@ h6 {
   <header>
     <h1 class="rainbow">Official GClient Website!!!! XD</h1>
     <nav>
-      <a href="#article-section" class="rainbow">User guides</a> | 
-      <a href="#code-section">Documentations</a> | 
+      <a href="#article-section" class="rainbow">Downloads</a> | 
+      <a href="#code-section">Example Configs</a> | 
       <a href="#task-status">License</a>
     </nav>
   </header>
 
   <section id="article-section">
-    <h2>Article and Figure Example</h2>
+    <h2>Download & Set up</h2>
     <article>
       <header>
         <h3>Understanding CSS Styling</h3>
@@ -381,15 +383,13 @@ h6 {
   </section>
 
   <section id="code-section">
-    <h2>Code Block Example</h2>
+    <h2>This is a example game config (very bad config, dont use it):</h2>
     <pre>
 <code>
-/* This is a code block styled with custom CSS */
-body {
-  background-color: #002b36;
-  color: #839496;
-  padding: 1em;
-}
+'players':
+  speed=10;
+  health=150;
+  effects=None; !example: "night vision"
 </code>
     </pre>
   </section>
