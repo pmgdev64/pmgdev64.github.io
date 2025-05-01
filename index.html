@@ -25,6 +25,7 @@ audio,
 canvas,
 video {
   display: inline-block;
+  border-radius: 15px;
 }
 audio:not([controls]) {
   display: none;
@@ -199,8 +200,24 @@ h6 {
   font-weight: 700;
 }
 html {
-  background-color: #073642;
-  color: #839496;
+  animation: BackgroundcolorRotate 6s linear 0s infinite;
+}
+@keyframes BackgroundcolorRotate {
+  from {
+    background-color: #6666ff;
+  }
+  10% {
+    background-color: #0099ff;
+  }
+  50% {
+    background-color: #00ff00;
+  }
+  75% {
+    background-color: #ff3399;
+  }
+  100% {
+    background-color: #6666ff;
+  }
 }
 body {
   background-color: #002b36;
