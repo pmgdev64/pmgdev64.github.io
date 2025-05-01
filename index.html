@@ -288,6 +288,27 @@ html {
     background-color: #6666ff;
   }
 }
+button {
+  border: none;
+  animation: BackgoundRotate 6s linear 0s infinite;
+}
+  @keyframes BackgroundRotate {
+  from {
+    background: #6666ff;
+  }
+  10% {
+    background: #0099ff;
+  }
+  50% {
+    background: #00ff00;
+  }
+  75% {
+    background: #ff3399;
+  }
+  100% {
+    background: #6666ff;
+  }
+  }
 body {
   background-color: #002b36;
   margin: 0 auto;
@@ -468,7 +489,7 @@ h6 {
       </header>
       <p>Coming soon... (Because this client is Unreleased)</p>   
       <img src="contents/img.png" class="align">
-      <button class="glow-on-hover" type="button">Download... 😒</button>
+      <button type="button">Download... 😒</button>
       <figure>
         <img src="https://via.placeholder.com/150" alt="Placeholder Image">
         <figcaption>Figure 1: A simple placeholder image.</figcaption>
