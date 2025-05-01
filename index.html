@@ -116,8 +116,9 @@ img {
 }
 .align {
   justify-content: center;
-  object-fit: contain;
-  width: auto;
+  height: auto; 
+  max-width: 100%;
+  object-fit: fill;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -400,7 +401,7 @@ h6 {
         <h3>Get the download link</h3>
       </header>
       <p>Coming soon... (Because this client is Unreleased)</p>   
-      <img src="contents/img.png" class="align" style="width: auto; height: auto; object-fit: contain;">
+      <img src="contents/img.png" class="align">
       <button>Download... 😒</button>
       <figure>
         <img src="https://via.placeholder.com/150" alt="Placeholder Image">
