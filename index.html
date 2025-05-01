@@ -138,6 +138,22 @@ legend {
   border: 0;
   padding: 0;
 }
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
 button,
 input,
 select,
@@ -405,7 +421,7 @@ h6 {
       </header>
       <p>Coming soon... (Because this client is Unreleased)</p>   
       <img src="contents/img.png" class="align">
-      <button>Download... 😒</button>
+      <button class="glow-on-hover" type="button">Download... 😒</button>
       <figure>
         <img src="https://via.placeholder.com/150" alt="Placeholder Image">
         <figcaption>Figure 1: A simple placeholder image.</figcaption>
