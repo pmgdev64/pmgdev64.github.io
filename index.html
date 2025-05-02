@@ -228,24 +228,23 @@ html {
 }
 button,
 .rainbowbutton{
-  border: none;
-  animation: BackgoundRotate 6s linear 0s infinite;
+  animation: BordercolorRotate 6s linear 0s infinite;
 }
-  @keyframes BackgroundRotate {
+  @keyframes BordercolorRotate {
   from {
-    background: #6666ff;
+    border-color: #6666ff;
   }
   10% {
-    background: #0099ff;
+    border-color: #0099ff;
   }
   50% {
-    background: #00ff00;
+    border-color: #00ff00;
   }
   75% {
-    background: #ff3399;
+    border-color: #ff3399;
   }
   100% {
-    background: #6666ff;
+    border-color: #6666ff;
   }
   }
 body {
@@ -427,8 +426,8 @@ h6 {
         <h3>Get the download link</h3>
       </header>
       <p>Coming soon... (Because this client is Unreleased)</p>   
-      <img src="contents/img.png" class="align" style="animation: BackgoundcolorRotate 6s linear 0s infinite;">
-      <button class="rainbow">Download... 😒</button>
+      <img src="contents/img.png" class="align">
+      <button class="rainbowbutton">Download... 😒</button>
       <figure>
         <img src="https://via.placeholder.com/150" alt="Placeholder Image">
         <figcaption>Figure 1: A simple placeholder image.</figcaption>
