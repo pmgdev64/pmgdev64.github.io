@@ -444,10 +444,44 @@ h6 {
     <h2>This is a example game config (very bad config, dont use it):</h2>
     <pre>
 <code>
-'players':
-  speed=10;
-  health=150;
-  effects=None; !example: "night vision"
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import org.lwjgl.opengl.GL11;
+
+// Use GIFDecoder to read and decode the frames of the GIF
+import gifdecoder.GIFDecoder;
+
+// Create a GIFDecoder object to read the animation file
+GIFDecoder decoder = new GIFDecoder();
+decoder.read("explode.gif");
+
+// Get the number of frames in the animation
+int frameCount = decoder.getFrameCount();
+
+// Create an array to store the frames of the animation
+BufferedImage[] frames = new BufferedImage[frameCount];
+
+// Decode the frames of the animation and store them in the array
+for (int i = 0; i < frameCount; i++) {
+    frames[i] = decoder.getFrame(i);
+}
+// Create an array to store the textures of the animation
+Texture[] textures = new Texture[frameCount];
+
+// Load each frame of the animation as a separate texture
+for (int i = 0; i < frameCount; i++) {
+    textures[i] = TextureLoader.getTexture("PNG", new ByteArrayInputStream(ImageIO.read(frames[i])));
+}
+textures[currentFrame].bind();
+
+GL11.glBegin(GL11.GL_QUADS);
+GL11.glTexCoord2f(0, 0);
+GL11.glVertex2f(x, y);
+GL11.glTexCoord2f(1, 0);
+GL11.glVertex2f(x + width, y);
+GL11.glTexCoord2f(1, 1);
+GL11.glVertex2f(x + width, y + height);
+GL11.glTexCoord2f;
 </code>
     </pre>
   </section>
