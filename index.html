@@ -1,35 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Arona Terminal</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="contents/favicon.ico">
-<style>
-body {
-  margin: 0;
-  background: linear-gradient(120deg, #A3D2F5, #ffffff);
-  font-family: 'Noto Sans JP', sans-serif;
-  display: flex; justify-content: center; align-items: center;
-  height: 100vh;
-}
-.card {
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(12px);
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  width: 320px;
-}
-.char { width: 100%; border-radius: 15px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kronus ModLoader</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    header {
+      background: rgba(15,23,42,0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      color: #38bdf8;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #38bdf8; }
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: url('https://i.ibb.co/ScFsv9m/minecraft-bg.jpg') center/cover no-repeat;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1.5rem;
+      background: #38bdf8;
+      color: #0f172a;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #0ea5e9; color: white; }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .footer {
+      background: #0f172a;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
 </head>
 <body>
-<div class="card">
-  <img src="arona.png" class="char" alt="Arona">
-  <h2>Welcome back, Sensei!</h2>
-  <p>How can I help you today?</p>
-</div>
+
+  <header>
+    <h1>Kronus ModLoader</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+      <a href="#docs">Docs</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>The Next Generation of Forge</h2>
+      <p>Lightweight, powerful, and designed for modpack stability.</p>
+      <a href="#download" class="btn">Download Now</a>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2 style="text-align:center; margin-bottom:2rem;">Features</h2>
+    <div class="features">
+      <div class="card">
+        <h3>@ChaosScene Annotation</h3>
+        <p>Define and control complex mod behavior with modern annotations.</p>
+      </div>
+      <div class="card">
+        <h3>ModBugCheckEx</h3>
+        <p>Custom crash handler that restarts game safely with styled error screen.</p>
+      </div>
+      <div class="card">
+        <h3>NewEntityRenderer</h3>
+        <p>Flexible rendering pipeline for entities and new model integrations.</p>
+      </div>
+      <div class="card">
+        <h3>Modpack Fail Exception</h3>
+        <p>Disable faulty modpacks gracefully without crashing the whole game.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <h2 style="text-align:center; margin-bottom:2rem;">Download</h2>
+    <div style="text-align:center;">
+      <a class="btn" href="https://github.com/yourteam/KronusModLoader/releases" target="_blank">Stable Release</a>
+      <a class="btn" href="https://github.com/yourteam/KronusModLoader/releases/tag/nightly" target="_blank">Nightly Build</a>
+    </div>
+  </section>
+
+  <section id="docs">
+    <h2 style="text-align:center; margin-bottom:2rem;">Getting Started</h2>
+    <pre style="background:#0f172a; padding:1rem; border-radius:8px; overflow-x:auto;">
+import net.kronus.annotation.ChaosScene;
+
+@ChaosScene
+public class ExampleMod {
+    public void init() {
+        System.out.println("Hello from Kronus!");
+    }
+}
+    </pre>
+  </section>
+
+  <div class="footer">
+    <p>Developed by PmgTeam | <a href="https://github.com/yourteam" target="_blank" style="color:#38bdf8;">GitHub</a> | <a href="#" style="color:#38bdf8;">Discord</a></p>
+  </div>
+
+  <script>
+    // Small scroll effect
+    window.addEventListener("scroll", () => {
+      document.querySelector("header").style.background =
+        window.scrollY > 50 ? "rgba(15,23,42,0.95)" : "rgba(15,23,42,0.9)";
+    });
+  </script>
 </body>
 </html>
-
