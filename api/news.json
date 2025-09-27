@@ -3,7 +3,7 @@
     "id": "news001",
     "title": "Ra mắt bản cập nhật mới",
     "snippet": "Bản cập nhật 1.2.3 đã có sẵn với nhiều tính năng mới.",
-    "image_url": "https://pmgdev64.github.io/news/images/news001.png",
+    "image_url": "https://pmgdev64.github.io/api/images/news001.png",
     "author": "PmgDev64",
     "date": "2025-09-26"
   },
@@ -11,7 +11,7 @@
     "id": "news002",
     "title": "Sự kiện đặc biệt",
     "snippet": "Tham gia sự kiện để nhận quà độc quyền.",
-    "image_url": "https://pmgdev64.github.io/news/images/news002.png",
+    "image_url": "https://pmgdev64.github.io/api/images/news002.png",
     "author": "PmgDev64",
     "date": "2025-09-25"
   }
