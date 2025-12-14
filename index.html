@@ -1,179 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kronus ModLoader</title>
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #e2e8f0;
-      line-height: 1.6;
-    }
-    header {
-      background: rgba(15,23,42,0.9);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      color: #38bdf8;
-    }
-    nav a {
-      margin: 0 1rem;
-      color: #cbd5e1;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #38bdf8; }
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem;
-      background: url('https://i.ibb.co/ScFsv9m/minecraft-bg.jpg') center/cover no-repeat;
-      position: relative;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.6);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      color: white;
-    }
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin-top: 1.5rem;
-      background: #38bdf8;
-      color: #0f172a;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn:hover { background: #0ea5e9; color: white; }
-    section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: #1e293b;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
-    .card:hover { transform: translateY(-5px); }
-    .footer {
-      background: #0f172a;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #94a3b8;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pmgdev64 | Sensei's Archive</title>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* -------------------- Biến và Cài đặt Chung -------------------- */
+        :root {
+            /* Màu sắc Blue Archive */
+            --ba-blue-light: #E0F7FA; /* Xanh pastel nền */
+            --ba-blue-dark: #5DADE2;  /* Xanh lam đậm */
+            --ba-yellow-primary: #FFC107; /* Vàng/Cam nổi bật */
+            --ba-white: #FFFFFF;
+            --ba-text-color: #333333;
+            
+            /* HÌNH DẠNG NÚT BÌNH HÀNH BO GÓC (Tùy chỉnh giá trị 3% để thay đổi độ vát) */
+            --clip-path-shape: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+        }
+
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: var(--ba-blue-light);
+            color: var(--ba-text-color);
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><defs><pattern id="p" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="%23c4e0e4" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23p)"/></svg>'); /* Thêm pattern nền nhẹ nhàng */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px; 
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        /* -------------------- Header -------------------- */
+        .ba-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        .ba-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; 
+            border: 6px solid var(--ba-yellow-primary); 
+            box-shadow: 0 0 0 4px var(--ba-white); /* Tạo hiệu ứng viền kép */
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .ba-header h1 {
+            font-weight: 700;
+            font-size: 2em;
+            color: var(--ba-text-color);
+            margin: 5px 0;
+        }
+
+        .ba-subtitle {
+            font-size: 1em;
+            color: var(--ba-text-color);
+            opacity: 0.7;
+        }
+
+        /* -------------------- Nút Liên kết (Buttons) -------------------- */
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Thiết lập cơ bản cho TẤT CẢ các nút */
+        .ba-button {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 60px; /* Kích thước lớn hơn cho thiết bị di động */
+            padding: 0 20px;
+            box-sizing: border-box;
+            font-weight: 700;
+            font-size: 1em;
+            text-align: left;
+            text-transform: uppercase;
+            
+            /* TẠO HÌNH DẠNG BÌNH HÀNH BO GÓC */
+            clip-path: var(--clip-path-shape);
+            position: relative;
+            overflow: hidden; 
+            cursor: pointer;
+            
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+        }
+
+        .ba-button .icon {
+            margin-right: 15px;
+            font-size: 1.4em;
+        }
+
+        /* -------------------- Nút Primary (Màu Vàng - Quan trọng nhất) -------------------- */
+        .ba-primary {
+            background-color: var(--ba-yellow-primary);
+            color: var(--ba-text-color);
+            border: 4px solid var(--ba-text-color); 
+            box-shadow: 0 6px 0 var(--ba-text-color); /* Shadow làm nổi */
+        }
+
+        .ba-primary:hover {
+            transform: translateY(-3px); /* Nhấc lên */
+            box-shadow: 0 8px 0 var(--ba-text-color);
+            opacity: 1;
+        }
+
+        /* -------------------- Nút Secondary (Màu Xanh Lam - Phổ thông) -------------------- */
+        .ba-secondary {
+            background-color: var(--ba-blue-dark);
+            color: var(--ba-white);
+            border: 3px solid var(--ba-white); 
+            box-shadow: 0 0 0 5px var(--ba-blue-dark); /* Viền ngoài màu nền */
+        }
+
+        .ba-secondary:hover {
+            background-color: #63bce9; 
+            transform: scale(1.01); 
+        }
+
+        /* -------------------- Nút Tertiary (Màu Xanh Nhạt - Project/Phụ) -------------------- */
+        .ba-tertiary {
+            background-color: var(--ba-blue-light);
+            color: var(--ba-text-color);
+            border: 2px solid var(--ba-blue-dark);
+        }
+
+        .ba-tertiary:hover {
+            background-color: #c4e4e9;
+        }
+
+        /* -------------------- Footer -------------------- */
+        .ba-footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: var(--ba-text-color);
+            opacity: 0.6;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Kronus ModLoader</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#features">Features</a>
-      <a href="#download">Download</a>
-      <a href="#docs">Docs</a>
-    </nav>
-  </header>
+    <div class="container">
+        <header class="ba-header">
+            <img src="https://via.placeholder.com/120x120?text=Avatar" alt="pmgdev64 Avatar" class="ba-avatar"> 
+            <h1>pmgdev64</h1>
+            <p class="ba-subtitle">Sensei / Developer / Player</p>
+        </header>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h2>The Next Generation of Forge</h2>
-      <p>Lightweight, powerful, and designed for modpack stability.</p>
-      <a href="#download" class="btn">Download Now</a>
+        <div class="links-section">
+            
+            <a href="https://youtube.com/yourchannel" target="_blank" class="ba-button ba-primary">
+                <span class="icon">▶️</span>
+                KÊNH YOUTUBE CHÍNH
+            </a>
+
+            <a href="https://github.com/pmgdev64" target="_blank" class="ba-button ba-secondary">
+                <span class="icon">🐙</span>
+                GITHUB PROJECTS
+            </a>
+
+            <a href="https://twitter.com/yourhandle" target="_blank" class="ba-button ba-secondary">
+                <span class="icon">🐦</span>
+                CẬP NHẬT TRÊN X (TWITTER)
+            </a>
+
+            <a href="project-page.html" target="_blank" class="ba-button ba-tertiary">
+                <span class="icon">⚙️</span>
+                [PROJECT NỔI BẬT] CÔNG CỤ X
+            </a>
+
+            <a href="#" target="_blank" class="ba-button ba-tertiary">
+                <span class="icon">💻</span>
+                BÀI VIẾT DEV BLOG
+            </a>
+            
+        </div>
+
+        <footer class="ba-footer">
+            Made with <span style="color: var(--ba-yellow-primary); font-weight: bold;">Sensei's</span> love
+        </footer>
+
     </div>
-  </section>
 
-  <section id="features">
-    <h2 style="text-align:center; margin-bottom:2rem;">Features</h2>
-    <div class="features">
-      <div class="card">
-        <h3>@ChaosScene Annotation</h3>
-        <p>Define and control complex mod behavior with modern annotations.</p>
-      </div>
-      <div class="card">
-        <h3>ModBugCheckEx</h3>
-        <p>Custom crash handler that restarts game safely with styled error screen.</p>
-      </div>
-      <div class="card">
-        <h3>NewEntityRenderer</h3>
-        <p>Flexible rendering pipeline for entities and new model integrations.</p>
-      </div>
-      <div class="card">
-        <h3>Modpack Fail Exception</h3>
-        <p>Disable faulty modpacks gracefully without crashing the whole game.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="download">
-    <h2 style="text-align:center; margin-bottom:2rem;">Download</h2>
-    <div style="text-align:center;">
-      <a class="btn" href="https://github.com/yourteam/KronusModLoader/releases" target="_blank">Stable Release</a>
-      <a class="btn" href="https://github.com/yourteam/KronusModLoader/releases/tag/nightly" target="_blank">Nightly Build</a>
-    </div>
-  </section>
-
-  <section id="docs">
-    <h2 style="text-align:center; margin-bottom:2rem;">Getting Started</h2>
-    <pre style="background:#0f172a; padding:1rem; border-radius:8px; overflow-x:auto;">
-package com.yourmod;
-      
-import net.kronus.annotation.ChaosScene;
-import net.kronus.mod.IMod;
-
-@KronusMod
-public class ExampleMod extends IMod
-{
-    public void init()
-    {
-        System.out.println("Hello from Kronus!");
-    }
-}
-    </pre>
-  </section>
-
-  <div class="footer">
-    <p>Developed by PmgTeam | <a href="https://github.com/pmgdev64" target="_blank" style="color:#38bdf8;">GitHub</a> | <a href="#" style="color:#38bdf8;">Discord</a></p>
-  </div>
-
-  <script>
-    // Small scroll effect
-    window.addEventListener("scroll", () => {
-      document.querySelector("header").style.background =
-        window.scrollY > 50 ? "rgba(15,23,42,0.95)" : "rgba(15,23,42,0.9)";
-    });
-  </script>
 </body>
 </html>
